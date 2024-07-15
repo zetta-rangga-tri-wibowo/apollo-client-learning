@@ -17,15 +17,16 @@ export class TitleCardListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     // this.getUnpublishedTitles();
+    this.getPublishedTitles();
   }
 
-  // getPublishedTitles() {
-  //   const status = true;
-  //   this.subs.sink = this.titleService.getTitles(status).subscribe(resp => {
-  //     console.log(resp);
-  //     this.formatTitlesData(resp);
-  //   })
-  // }
+  getPublishedTitles() {
+    const status = true;
+    this.subs.sink = this.titleService.getTitles(status).subscribe(resp => {
+      console.log(resp);
+      // this.formatTitlesData(resp);
+    })
+  }
 
   // getUnpublishedTitles() {
   //   const status = false;

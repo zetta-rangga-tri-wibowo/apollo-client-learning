@@ -1,0 +1,39 @@
+.card {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  padding: 0.8rem;
+  min-width: 300px;
+  background-color: #fff;
+  border: 1px solid #333333;
+  border-radius: 6px;
+  //border: 1px solid red;
+
+  p {
+    margin: 0;
+  }
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  //border: 1px solid red;
+  gap: 16px;
+}
+
+.card-title {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #8f8f8f;
+}
+
+.card-content {
+  p {
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+}

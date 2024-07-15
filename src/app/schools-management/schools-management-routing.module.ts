@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SchoolTableComponent } from './school-table/school-table.component';
+import { SchoolManagementComponent } from "./school-management.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: SchoolTableComponent,
+    component: SchoolManagementComponent,
     runGuardsAndResolvers: 'always',
   },
 ];

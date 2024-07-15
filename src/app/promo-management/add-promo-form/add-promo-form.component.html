@@ -1,1 +1,66 @@
-<p>add-promo-form works!</p>
+<!-- Loading Form -->
+<ng-container>
+  <mat-spinner *ngIf="loading" diameter="100"></mat-spinner>
+</ng-container>
+
+<!-- FORM -->
+<div *ngIf="!loading">
+  <form [formGroup]="promoForm" (ngSubmit)="onSubmit()">
+    <mat-card class="mat-card">
+      <mat-card-title>{{ title }} Promo</mat-card-title>
+      <mat-divider inset></mat-divider>
+      <mat-card-content class="no-margin-y">
+        <div class="input-group">
+          <mat-form-field appearance="fill">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title">
+          </mat-form-field>
+          <!--          {{ promoForm?.get['title']?.errors | json }}-->
+          <span class="error" *ngIf="promoForm.get('title')?.invalid && promoForm.get('title')?.touched">
+            This field required
+          </span>
+        </div>
+        <div class="input-group">
+          <mat-form-field appearance="fill">
+            <mat-label>Subtitle</mat-label>
+            <input matInput formControlName="sub_title">
+          </mat-form-field>
+          <span class="error" *ngIf="promoForm.get('sub_title')?.errors?.required && promoForm.get('sub_title')?.touched">
+            This field required
+          </span>
+        </div>
+        <div class="input-group">
+          <mat-form-field appearance="fill">
+            <mat-label>Reference</mat-label>
+            <input matInput formControlName="ref" placeholder="placeholder">
+          </mat-form-field>
+          <span class="error" *ngIf="promoForm.get('ref')?.errors?.required && promoForm.get('ref')?.touched">
+            This field required
+          </span>
+        </div>
+        <div class="input-group">
+          <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+          </mat-form-field>
+          <span class="error" *ngIf="promoForm.get('description')?.errors?.required && promoForm.get('description')?.touched">
+            This field required
+          </span>
+        </div>
+      </mat-card-content>
+      <mat-divider inset></mat-divider>
+      <!--   Action   -->
+      <mat-card-actions class="align-end">
+        <div>
+          <button mat-raised-button color="primary" type="submit" [disabled]="loading">
+            {{ title === 'Add' ? 'Submit' : 'Update' }}
+          </button>
+          <!--     Spinner Inside Button     -->
+          <div>
+            <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+          </div>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

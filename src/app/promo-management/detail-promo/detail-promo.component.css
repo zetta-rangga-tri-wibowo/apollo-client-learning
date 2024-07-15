@@ -1,0 +1,31 @@
+.container-detail {
+  padding: 2rem;
+}
+
+.wrapper {
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+
+.back-navigation {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  a {
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      color: #755794;
+    }
+  }
+}
+
+/*.loading-spinner {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*  align-items: center;*/
+/*  height: 100%;*/
+/*  padding: 1rem;*/
+/*}*/

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { PromoCardListComponent } from "./promo-card-list/promo-card-list.component";
 
 @Component({
   selector: 'app-promo-management',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PromoManagementComponent implements OnInit {
 
+  @ViewChild(PromoCardListComponent) promoListComp!: PromoCardListComponent;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  refreshPromoList() {
+    this.promoListComp.getPromoList({ limit: 10, page: 0 });
   }
 
 }

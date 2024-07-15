@@ -1,0 +1,44 @@
+h1 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  //border: 1px solid red;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 1rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.pagination-button {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+mat-card {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 190px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+mat-card-content {
+  height: 250px; /* Adjust the height as needed */
+  overflow-y: auto;
+}

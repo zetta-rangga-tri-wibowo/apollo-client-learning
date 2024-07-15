@@ -1,1 +1,34 @@
-<p>school-table works!</p>
+<div class="container-table">
+
+  <h1>School List</h1>
+<!--  <hr />-->
+  <!-- Table -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 school-table">
+    <!-- Short Name Column -->
+    <ng-container matColumnDef="short_name">
+      <th mat-header-cell *matHeaderCellDef> Short Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.short_name}} </td>
+    </ng-container>
+
+    <!-- Long Name Column -->
+    <ng-container matColumnDef="long_name">
+      <th mat-header-cell *matHeaderCellDef> Long Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.long_name}} </td>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <!--  Table Row  -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <div class="loading-spinner" *ngIf="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+  <!-- Pagination -->
+  <mat-paginator [length]="totalSchools" [pageSize]="currentPageSize" [pageSizeOptions]="[5, 10, 20]" (page)="onPageChange($event)"></mat-paginator>
+</div>

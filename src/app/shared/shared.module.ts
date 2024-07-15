@@ -90,6 +90,7 @@ const modules: any = [
   ScrollingModule,
   FormsModule,
   ReactiveFormsModule,
+  MatChipsModule,
 ];
 
 @NgModule({

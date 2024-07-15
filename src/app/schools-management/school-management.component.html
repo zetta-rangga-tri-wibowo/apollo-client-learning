@@ -1,0 +1,13 @@
+<div class="wrapper-school-management">
+  <div>
+    <h1>School Statistik</h1>
+    <div class="wrapper-school-card">
+      <div *ngFor="let statistik of schoolStatistic">
+        <app-card [title]="statistik.title" [content]="statistik.value"></app-card>
+      </div>
+    </div>
+    <hr/>
+  </div>
+  <app-school-table (totalOfSchools)="handleTotalOfSchools($event)"></app-school-table>
+<!--  <app-target-component [masukan]="totalSchools"></app-target-component>-->
+</div>

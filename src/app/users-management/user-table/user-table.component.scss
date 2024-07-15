@@ -1,0 +1,38 @@
+table {
+  width: 100%;
+}
+
+.container-table {
+  padding: 2rem;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #333333;
+  padding: 1rem;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  background-color: #333333;
+  color: white;
+}
+
+.input-search {
+  padding: 10px;
+  margin-top: 1rem;
+}
+
+.data-not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #333333;
+  color: white;
+}
