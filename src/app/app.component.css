@@ -1,0 +1,21 @@
+.menu {
+    padding: 20px 20px;
+    background-color: #333;
+    color: white;
+    align-items: center;
+
+   a {
+     color: white;
+     text-decoration: none;
+   }
+}
+
+.parent-sub-menu {
+  display: flex;
+  align-items: center;
+}
+
+.sub-menu {
+  display: flex;
+  align-items: center;
+}

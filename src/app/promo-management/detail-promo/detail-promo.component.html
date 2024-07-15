@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <a [routerLink]="['/promo']">Back To Promo</a>
+</div>
+<div class="p-grid container-detail">
+  <div class="p-col-4">
+    <div>
+      <app-add-promo-form></app-add-promo-form>
+    </div>
+  </div>
+  <div class="p-col-8">
+    <div class="loading-spinner">
+      <mat-spinner *ngIf="loading"></mat-spinner>
+    </div>
+    <div *ngIf="!loading">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ promo.title }}</mat-card-title>
+          <!--            <mat-card-subtitle>{{ promo.sub_title }}</mat-card-subtitle>-->
+        </mat-card-header>
+        <img mat-card-image src="{{ promo.image_url || 'https://placehold.co/100x40' }}">
+        <mat-card-content>
+          <p>Ref : {{ promo.ref }}</p>
+          <p>Description : {{ promo.description }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,20 +1,20 @@
-<div class="p-grid">
-  <div class="p-col-12">
+<div class="p-grid p-align-center menu">
+  <div class="p-col-7">
     <a [routerLink]="['/home']">Home</a>
   </div>
-  <div class="p-col-12">
-    <a [routerLink]="['/title']">Title Management</a>
-  </div>
-  <div class="p-col-12">
-    <a [routerLink]="['/schools']">School Management</a>
-  </div>
-  <div class="p-col-12">
-    <a [routerLink]="['/users']">User Management</a>
-  </div>
-  <div class="p-col-12">
-    <a [routerLink]="['/promo']">Promo</a>
+  <div class="p-col-5 p-grid parent-sub-menu">
+    <div class="p-col-3 sub-menu">
+      <a [routerLink]="['/title']">Title Management</a>
+    </div>
+    <div class="p-col-3 sub-menu">
+      <a [routerLink]="['/schools']">School Management</a>
+    </div>
+    <div class="p-col-3 sub-menu">
+      <a [routerLink]="['/users']">User Management</a>
+    </div>
+    <div class="p-col-3 sub-menu">
+      <a [routerLink]="['/promo']">Promo</a>
+    </div>
   </div>
 </div>
-<br>
-
 <router-outlet></router-outlet>

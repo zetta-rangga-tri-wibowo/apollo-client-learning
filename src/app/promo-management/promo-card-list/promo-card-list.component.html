@@ -1,1 +1,38 @@
-<p>promo-card-list works!</p>
+<h1>List Promo</h1>
+<!-- Card List -->
+<div class="container">
+  <!-- Loading Spinner -->
+  <div *ngIf="loading" class="loading-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+  <!-- Card  -->
+  <div class="wrapper" *ngIf="!loading">
+    <div *ngFor="let promo of promoList" class="">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ promo.title }}</mat-card-title>
+          <mat-card-subtitle>{{ promo.sub_title }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{ promo.image_url || 'https://placehold.co/100x40' }}">
+        <mat-card-content>
+          <p>Ref : {{ promo.ref }}</p>
+          <p>Description : {{ promo.description }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="accent" (click)="deletePromo(promo._id)" [disabled]="loading">Delete</button>
+          <button mat-raised-button color="accent" (click)="viewPromo(promo._id)" [disabled]="loading">View</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+  <!--  Pagination -->
+  <div *ngIf="!loading">
+    <button (click)="onPreviousPage()">Previous</button>
+    <button>{{ pageNumber }}</button>
+    <button (click)="onBackPage()">Next</button>
+  </div>
+  <!-- No Data -->
+  <div>
+    <p *ngIf="promoList?.length === 0">No promo available</p>
+  </div>
+</div>

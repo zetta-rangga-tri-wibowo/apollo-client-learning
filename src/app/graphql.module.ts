@@ -3,6 +3,8 @@ import {APOLLO_OPTIONS} from 'apollo-angular';
 import {ApolloClientOptions, ApolloLink, InMemoryCache} from '@apollo/client/core';
 import {HttpLink} from 'apollo-angular/http';
 import { environment } from 'src/environments/environment';
+import SweetAlert from 'sweetalert2';
+
 
 const uri = environment.apiUrl; // <-- add the URL of the GraphQL server here
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
@@ -22,8 +24,24 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
     return forward(operation);
   });
 
+
+  // Error handling link
+  const errorLink = new ApolloLink((operation, forward) => {
+    return forward(operation).map((response) => {
+      // Check for errors in response and show alert if found
+      if (response.errors && response.errors.length > 0) {
+        SweetAlert.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: response.errors[0].message,
+        });
+      }
+      return response;
+    });
+  });
+
   return {
-    link: authLink.concat(http),
+    link: ApolloLink.from([errorLink, authLink, http]),
     cache: new InMemoryCache(),
   };
 }
